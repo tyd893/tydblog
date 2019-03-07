@@ -1,0 +1,44 @@
+#==================== Tomcat Setting =====================#
+server:
+  port: 16006
+  tomcat:
+    uri-encoding: UTF-8
+
+
+#==================== spring Setting =====================#
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  mvc:
+    static-path-pattern: /**
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: false
+
+
+    thymeleaf:
+       cache: false
+       prefix: classpath:/templates/html/
+       suffix: .html
+       encoding: UTF-8
+       content-type: text/html
+       mode: HTML5
+
+    resources:
+      static-locations: classpath:/templates/res/
+  servlet:
+    multipart:
+      max-file-size: 100Mb
+      max-request-size: 100Mb
+
+  profiles:
+    active: dev
